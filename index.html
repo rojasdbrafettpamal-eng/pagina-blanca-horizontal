@@ -1,20 +1,84 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Página en blanco con diseño horizontal.">
-  <meta name="theme-color" content="#ffffff">
-  <title>Página blanca horizontal</title>
-  <style>
-    * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; background: #fff; }
-    body { min-height: 100vh; display: grid; place-items: center; padding: 0; }
-    main { width: min(100vw, 177.7778vh); aspect-ratio: 16 / 9; background: #fff; }
-    @media (orientation: portrait) { main { width: 100vw; aspect-ratio: 16 / 9; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#77c9ff">
+<title>Mundo de bloques</title>
+<style>
+:root{--ink:#17241c;--panel:#17251deF;--edge:#ffffff45;--gold:#ffe16b}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#7ccaff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:white;touch-action:none}button{font:inherit;color:inherit;border:0;cursor:pointer;touch-action:manipulation}#app{position:relative;width:100%;height:100%;background:linear-gradient(#70c7ff 0%,#d2f1ff 72%,#96da73 72%)}#game{display:block;width:100%;height:100%;image-rendering:pixelated}#hud{position:absolute;inset:0;pointer-events:none;display:none}.topbar{position:absolute;top:12px;left:12px;right:12px;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.pill{background:#17251dc9;border:1px solid var(--edge);border-radius:12px;padding:8px 11px;font-size:13px;text-shadow:1px 2px #0008;box-shadow:0 3px 0 #0003}.topbtn{pointer-events:auto;background:#17251ddd;border:1px solid var(--edge);border-radius:10px;padding:8px 13px;font-weight:800}.hint{position:absolute;top:61px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#17251da8;border-radius:9px;padding:6px 10px;font-size:12px}.hotbar{position:absolute;left:50%;bottom:13px;transform:translateX(-50%);display:flex;gap:5px;pointer-events:auto;background:#17251dbb;padding:6px;border:1px solid #ffffff55;border-radius:12px}.slot{width:clamp(43px,8vw,59px);height:clamp(47px,9vw,63px);display:grid;place-items:center;background:#ffffff25;border:2px solid #ffffff40;border-radius:8px;position:relative;font-size:26px}.slot.selected{border:3px solid var(--gold);background:#fff4a533;transform:translateY(-4px)}.slot small{position:absolute;bottom:0;right:4px;font-size:10px;color:#fff;text-shadow:1px 1px #000}.actions{position:absolute;right:14px;bottom:94px;display:flex;gap:8px;pointer-events:auto}.action{width:68px;height:54px;border-radius:13px;background:#17251de8;border:1px solid var(--edge);font-weight:900;box-shadow:0 4px #0004}.action.active{outline:3px solid var(--gold)}.touchpad{position:absolute;left:14px;bottom:91px;display:flex;align-items:center;gap:8px;pointer-events:auto}.touchbtn{width:55px;height:55px;border-radius:50%;background:#17251de0;border:1px solid var(--edge);font-size:22px;font-weight:900;box-shadow:0 4px #0004}.touchbtn.jump{width:65px;height:65px;background:#294d35e8;font-size:13px}.overlay{position:absolute;inset:0;display:grid;place-items:center;padding:18px;background:linear-gradient(#0b283a55,#13201588)}.card{width:min(440px,94vw);text-align:center;padding:clamp(22px,5vw,38px);border:3px solid #ffffffbb;border-radius:20px;background:linear-gradient(145deg,#244d35f5,#162a23f5);box-shadow:0 12px 0 #0004,0 24px 55px #0005}.logo{font-size:clamp(36px,10vw,61px);line-height:1;font-weight:1000;letter-spacing:-3px;color:#fff;text-shadow:0 5px #385b30,3px 8px #0006;margin:0 0 10px}.logo span{color:#ffdc55}.sub{margin:0 auto 22px;color:#e5f3e5;line-height:1.45;max-width:320px}.menuBtns{display:grid;gap:10px}.menuBtn{padding:14px 18px;border-radius:12px;background:linear-gradient(#79c744,#438e2e);border:2px solid #b7ed7a;color:#fff;font-weight:900;font-size:17px;text-shadow:1px 2px #0006;box-shadow:0 5px #28531f}.menuBtn.secondary{background:linear-gradient(#6e8994,#455d66);border-color:#b2c5cb;box-shadow:0 5px #273840}.foot{font-size:11px;color:#d4e8d6aa;margin-top:16px}.panel{position:absolute;inset:0;display:none;place-items:center;padding:18px;background:#0008}.panel .card{max-height:88vh;overflow:auto}.panel h2{margin:0 0 10px}.panel p{line-height:1.5}.back{margin-top:10px}.toast{position:absolute;top:18%;left:50%;transform:translateX(-50%);background:#17251de8;border:1px solid #fff6;border-radius:10px;padding:8px 13px;opacity:0;transition:opacity .2s;pointer-events:none;font-weight:700}.toast.show{opacity:1}@media(max-width:600px){.hint{top:58px;font-size:11px}.pill{font-size:11px;padding:7px 9px}.actions{right:10px;bottom:92px;flex-direction:column}.action{width:59px;height:48px}.touchpad{left:10px;bottom:92px;gap:6px}.touchbtn{width:50px;height:50px}.touchbtn.jump{width:58px;height:58px}.hotbar{bottom:9px;gap:3px;padding:4px}.slot{width:clamp(39px,11vw,53px);height:52px}.topbar{top:8px;left:8px;right:8px}}
+</style>
 </head>
 <body>
-  <main aria-label="Lienzo blanco horizontal"></main>
+<div id="app">
+<canvas id="game" aria-label="Mundo de bloques jugable"></canvas>
+<div id="hud">
+ <div class="topbar"><div class="pill" id="coords">Día 1 · Mundo verde</div><button class="topbtn" id="pause">Ⅱ Menú</button></div>
+ <div class="hint">Muévete, salta y rompe o coloca bloques</div>
+ <div class="hotbar" id="hotbar"></div>
+ <div class="touchpad"><button class="touchbtn" data-key="left" aria-label="Mover a la izquierda">◀</button><button class="touchbtn" data-key="right" aria-label="Mover a la derecha">▶</button><button class="touchbtn jump" data-key="jump">SALTAR</button></div>
+ <div class="actions"><button class="action active" id="breakBtn">⛏<br><small>ROMPER</small></button><button class="action" id="placeBtn">▣<br><small>COLOCAR</small></button></div>
+</div>
+<div class="overlay" id="menu"><div class="card"><h1 class="logo">MUNDO<br><span>DE BLOQUES</span></h1><p class="sub">Explora, mina y construye tu propio rincón pixelado.</p><div class="menuBtns"><button class="menuBtn" id="play">▶ JUGAR</button><button class="menuBtn secondary" id="how">¿CÓMO SE JUEGA?</button></div><div class="foot">Aventura 2D de bloques · Guarda tu mundo en este dispositivo</div></div></div>
+<div class="panel" id="help"><div class="card"><h2>Cómo se juega</h2><p><b>Camina:</b> A / D o las flechas. En móvil, usa ◀ ▶.<br><b>Salta:</b> Espacio, W, ↑ o SALTAR.<br><b>Rompe:</b> elige ⛏ y toca un bloque cercano.<br><b>Construye:</b> elige ▣ y toca un espacio junto a ti.<br><b>Bloques:</b> selecciona uno en la barra inferior; también puedes usar 1–5.</p><button class="menuBtn back" id="helpBack">VOLVER</button></div></div>
+<div class="panel" id="pausePanel"><div class="card"><h2>Partida pausada</h2><p>Tu mundo se guarda automáticamente en este dispositivo.</p><div class="menuBtns"><button class="menuBtn" id="resume">SEGUIR JUGANDO</button><button class="menuBtn secondary" id="home">VOLVER AL MENÚ</button><button class="menuBtn secondary" id="newWorld">CREAR OTRO MUNDO</button></div></div></div>
+<div class="toast" id="toast"></div>
+</div>
+<script>
+(()=>{
+'use strict';
+const canvas=document.getElementById('game'),ctx=canvas.getContext('2d');
+const TILE=32,W=110,H=34,GRAV=.48,MAXFALL=10;
+const defs={0:{name:'Aire',color:'transparent',icon:'▫'},1:{name:'Hierba',color:'#65b84a',icon:'🟩'},2:{name:'Tierra',color:'#93613e',icon:'🟫'},3:{name:'Piedra',color:'#858b91',icon:'⬜'},4:{name:'Madera',color:'#a96d35',icon:'🪵'},5:{name:'Hojas',color:'#438b3b',icon:'🌿'},6:{name:'Arena',color:'#e7d18b',icon:'🟨'}};
+const inventory=[1,2,3,4,5],world=Array.from({length:H},()=>Array(W).fill(0));
+let player={x:5*TILE,y:0,w:22,h:42,vx:0,vy:0,ground:false},camX=0,camY=0,selected=0,mode='break',running=false,keys={},last=0,toastTimer=0;
+let scaleX=1,scaleY=1,viewW=800,viewH=450;
+function resize(){const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.floor(innerWidth*dpr);canvas.height=Math.floor(innerHeight*dpr);canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(dpr,0,0,dpr,0,0);viewW=innerWidth;viewH=innerHeight;scaleX=viewW/(canvas.width/dpr);scaleY=viewH/(canvas.height/dpr);}
+addEventListener('resize',resize);resize();
+function terrain(){for(let x=0;x<W;x++){const surface=14+Math.round(Math.sin(x*.14)*1.5+Math.sin(x*.049)*2+Math.sin(x*.31)*.55);for(let y=0;y<H;y++){if(y<surface)world[y][x]=0;else if(y===surface)world[y][x]=1;else if(y<surface+4)world[y][x]=2;else world[y][x]=3;}}
+// Pockets and scattered ores/ledges
+for(let x=7;x<W-6;x++){if(Math.random()<.065){let sy=14+Math.round(Math.sin(x*.14)*1.5+Math.sin(x*.049)*2);for(let t=0;t<2+Math.random()*3;t++){let xx=x+t, yy=sy-1-Math.floor(Math.random()*3);if(world[yy]?.[xx]===0)world[yy][xx]=6;}}}
+// small trees, with a safe opening around the spawn
+for(let x=4;x<W-3;x++){if(x>9&&Math.random()<.105&&world[13][x]===1){let top=13;for(let h=1;h<=3;h++)if(top-h>=0)world[top-h][x]=4;for(let dy=-2;dy<=0;dy++)for(let dx=-2;dx<=2;dx++)if(Math.abs(dx)+Math.abs(dy)<4&&top+dy>=0&&x+dx>=0&&x+dx<W&&world[top+dy][x+dx]===0)world[top+dy][x+dx]=5;}}
+}
+function fresh(){for(let y=0;y<H;y++)world[y].fill(0);terrain();player={x:5*TILE,y:11*TILE,w:22,h:42,vx:0,vy:0,ground:false};inventoryCounts={1:0,2:0,3:0,4:0,5:0,6:0};selected=0;renderHotbar();save();}
+let inventoryCounts={1:0,2:0,3:0,4:0,5:0,6:0};
+function save(){try{localStorage.setItem('zapia_block_world_v1',JSON.stringify({world,player,inventoryCounts,selected}));}catch(e){}}
+function load(){try{const d=JSON.parse(localStorage.getItem('zapia_block_world_v1'));if(d?.world?.length===H&&d.world[0]?.length===W){for(let y=0;y<H;y++)world[y]=d.world[y];player={...player,...d.player};inventoryCounts={...inventoryCounts,...d.inventoryCounts};selected=d.selected||0;return true}}catch(e){}return false}
+terrain();if(!load())player.y=11*TILE;
+function renderHotbar(){const el=document.getElementById('hotbar');el.innerHTML='';inventory.forEach((id,i)=>{const b=document.createElement('button');b.className='slot'+(i===selected?' selected':'');b.title=defs[id].name;b.innerHTML=`${defs[id].icon}<small>${inventoryCounts[id]||''}</small>`;b.addEventListener('click',()=>{selected=i;renderHotbar()});el.appendChild(b)});}
+renderHotbar();
+function rect(x,y,w,h,c){ctx.fillStyle=c;ctx.fillRect(Math.round(x),Math.round(y),Math.round(w),Math.round(h));}
+function tileAt(x,y){return x<0||y<0||x>=W||y>=H?0:world[y][x]}
+function drawBlock(id,x,y){const px=x*TILE-camX,py=y*TILE-camY;if(id===0)return;const colors={1:'#6fbd4c',2:'#95633d',3:'#899097',4:'#a66a36',5:'#438e43',6:'#e5cf88'};rect(px,py,TILE,TILE,colors[id]||'#aaa');rect(px,py,TILE,3,'#ffffff28');rect(px,py,3,TILE,'#ffffff20');rect(px+TILE-3,py,3,TILE,'#00000020');rect(px,py+TILE-3,TILE,3,'#00000024');if(id===1){rect(px,py,TILE,7,'#65bb4c');rect(px,py+7,TILE,2,'#579d3f')}if(id===3){rect(px+7,py+8,4,3,'#aab0b5');rect(px+21,py+20,5,4,'#727a81')}if(id===2){rect(px+9,py+17,5,3,'#835535');rect(px+22,py+7,3,4,'#a16d45')}if(id===5){rect(px+4,py+5,8,6,'#56a94c');rect(px+19,py+19,8,7,'#347935')}}
+function draw(){ctx.clearRect(0,0,viewW,viewH);const sky=ctx.createLinearGradient(0,0,0,viewH);sky.addColorStop(0,'#69c2fa');sky.addColorStop(.72,'#c4edff');sky.addColorStop(1,'#d8f4ff');rect(0,0,viewW,viewH,'#a7e3ff');ctx.fillStyle=sky;ctx.fillRect(0,0,viewW,viewH);
+// sun and distant soft hills
+ctx.fillStyle='#fff2a6';ctx.beginPath();ctx.arc(viewW*.82,viewH*.18,32,0,Math.PI*2);ctx.fill();ctx.fillStyle='#91d5bd';ctx.beginPath();ctx.moveTo(0,viewH*.68);for(let x=0;x<=viewW;x+=30)ctx.lineTo(x,viewH*.65+Math.sin((x+camX*.18)*.008)*19);ctx.lineTo(viewW,viewH);ctx.lineTo(0,viewH);ctx.fill();
+const minX=Math.max(0,Math.floor(camX/TILE)-1),maxX=Math.min(W-1,Math.ceil((camX+viewW)/TILE)+1),minY=Math.max(0,Math.floor(camY/TILE)-1),maxY=Math.min(H-1,Math.ceil((camY+viewH)/TILE)+1);
+for(let y=minY;y<=maxY;y++)for(let x=minX;x<=maxX;x++)drawBlock(world[y][x],x,y);
+// little player avatar
+const px=player.x-camX,py=player.y-camY;rect(px+3,py+13,player.w-6,player.h-13,'#3e74d2');rect(px+3,py,player.w-6,16,'#f0bd86');rect(px+2,py-2,player.w-4,6,'#5d3e2b');rect(px+6,py+5,3,3,'#17221a');rect(px+player.w-9,py+5,3,3,'#17221a');rect(px+5,py+player.h-6,6,6,'#45332b');rect(px+player.w-11,py+player.h-6,6,6,'#45332b');
+// focus frame on tile near direction/player
+const tx=Math.floor((player.x+player.w/2+(player.vx>=0?25:-25))/TILE),ty=Math.floor((player.y+player.h/2)/TILE);ctx.strokeStyle='#fff9a3';ctx.lineWidth=2;ctx.strokeRect(tx*TILE-camX+1,ty*TILE-camY+1,TILE-2,TILE-2);
+document.getElementById('coords').textContent=`Día 1 · ${Math.max(0,Math.floor(player.x/TILE))}, ${Math.max(0,H-Math.floor(player.y/TILE))}`;
+}
+function collides(x,y){const l=Math.floor(x/TILE),r=Math.floor((x+player.w-1)/TILE),t=Math.floor(y/TILE),b=Math.floor((y+player.h-1)/TILE);for(let yy=t;yy<=b;yy++)for(let xx=l;xx<=r;xx++)if(tileAt(xx,yy)!==0)return true;return false}
+function update(dt){if(!running)return;const dir=(keys.right?1:0)-(keys.left?1:0);player.vx=dir*3.3;if(dir)player.x+=player.vx;if(collides(player.x,player.y)){player.x-=player.vx;player.vx=0}
+if((keys.jump||keys.up)&&player.ground){player.vy=-9;player.ground=false}player.vy=Math.min(MAXFALL,player.vy+GRAV);player.y+=player.vy;if(collides(player.x,player.y)){if(player.vy>0){player.y=Math.floor((player.y+player.h)/TILE)*TILE-player.h;player.ground=true}else player.y=Math.ceil(player.y/TILE)*TILE;player.vy=0}else player.ground=false;
+player.x=Math.max(0,Math.min(W*TILE-player.w,player.x));player.y=Math.min(H*TILE-player.h,player.y);camX=Math.max(0,Math.min(W*TILE-viewW,player.x+player.w/2-viewW/2));camY=Math.max(0,Math.min(H*TILE-viewH,player.y+player.h/2-viewH*.56));draw();}
+function loop(t){const dt=Math.min(32,t-last||16);last=t;update(dt/16);requestAnimationFrame(loop)}requestAnimationFrame(loop);
+function toast(text){const el=document.getElementById('toast');el.textContent=text;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),1300)}
+function actionAt(screenX,screenY){const tx=Math.floor((screenX+camX)/TILE),ty=Math.floor((screenY+camY)/TILE);const pcx=(player.x+player.w/2)/TILE,pcy=(player.y+player.h/2)/TILE;if(Math.hypot(tx-pcx,ty-pcy)>4.5){toast('Acércate más a ese bloque');return}if(tx<0||ty<0||tx>=W||ty>=H)return;
+if(mode==='break'){const id=world[ty][tx];if(id){world[ty][tx]=0;inventoryCounts[id]=(inventoryCounts[id]||0)+1;renderHotbar();save();draw()}else toast('Ahí no hay un bloque')}
+else{const id=inventory[selected];if(world[ty][tx]!==0){toast('Ese espacio ya está ocupado');return}if(Math.abs(tx*TILE-player.x)<player.w&&Math.abs(ty*TILE-player.y)<player.h){toast('No puedes colocar un bloque sobre ti');return}world[ty][tx]=id;inventoryCounts[id]=(inventoryCounts[id]||0)-1;renderHotbar();save();draw()}}
+canvas.addEventListener('pointerdown',e=>{if(!running)return;e.preventDefault();actionAt(e.clientX,e.clientY)});
+addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['arrowleft','arrowright','arrowup',' ','arrowdown'].includes(k))e.preventDefault();if(k==='a'||k==='arrowleft')keys.left=true;if(k==='d'||k==='arrowright')keys.right=true;if(k==='w'||k==='arrowup'||k===' ')keys.jump=true;if(k>='1'&&k<='5'){selected=Number(k)-1;renderHotbar()}if(k==='escape'&&running)pauseGame()},{passive:false});
+addEventListener('keyup',e=>{const k=e.key.toLowerCase();if(k==='a'||k==='arrowleft')keys.left=false;if(k==='d'||k==='arrowright')keys.right=false;if(k==='w'||k==='arrowup'||k===' ')keys.jump=false});
+document.querySelectorAll('[data-key]').forEach(b=>{const k=b.dataset.key;const down=e=>{e.preventDefault();keys[k]=true};const up=e=>{e.preventDefault();keys[k]=false};b.addEventListener('pointerdown',down);b.addEventListener('pointerup',up);b.addEventListener('pointercancel',up);b.addEventListener('pointerleave',up)});
+document.getElementById('breakBtn').onclick=()=>{mode='break';document.getElementById('breakBtn').classList.add('active');document.getElementById('placeBtn').classList.remove('active')};document.getElementById('placeBtn').onclick=()=>{mode='place';document.getElementById('placeBtn').classList.add('active');document.getElementById('breakBtn').classList.remove('active')};
+function pauseGame(){running=false;document.getElementById('pausePanel').style.display='grid';save()}
+document.getElementById('play').onclick=()=>{document.getElementById('menu').style.display='none';document.getElementById('help').style.display='none';document.getElementById('pausePanel').style.display='none';document.getElementById('hud').style.display='block';running=true;draw()};document.getElementById('how').onclick=()=>document.getElementById('help').style.display='grid';document.getElementById('helpBack').onclick=()=>document.getElementById('help').style.display='none';document.getElementById('pause').onclick=pauseGame;document.getElementById('resume').onclick=()=>{document.getElementById('pausePanel').style.display='none';running=true};document.getElementById('home').onclick=()=>{save();running=false;document.getElementById('hud').style.display='none';document.getElementById('pausePanel').style.display='none';document.getElementById('menu').style.display='grid'};document.getElementById('newWorld').onclick=()=>{fresh();document.getElementById('pausePanel').style.display='none';running=true;toast('¡Nuevo mundo creado!')};document.getElementById('pause').addEventListener('click',save);addEventListener('beforeunload',save);
+})();
+</script>
 </body>
 </html>
